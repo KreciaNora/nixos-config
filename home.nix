@@ -13,12 +13,12 @@
   };
 
   # Bash aliases
-#programs.bash = {
-#   enable = true;
-#   shellAliases = {
-#     ll = "ls -la";
-#     rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
-  #     update = "cd ~/nixos-config && nix flake update && rebuild";
-  # };
-  #};
+programs.bash = {
+   enable = true;
+   shellAliases = {
+     ll = "ls -la";
+     rebuild = "sudo nixos-rebuild switch --flake ~/nixos-config";
+       update = "cd ~/nixos-config && nix flake update && rebuild";
+   };
+  };
 }
