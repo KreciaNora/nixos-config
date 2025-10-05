@@ -123,7 +123,8 @@ programs.steam = {
     enable = true;
     xwayland.enable = true;  # Kompatybilność z aplikacjami X11
   };
-
+  #flake
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
