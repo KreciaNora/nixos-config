@@ -22,7 +22,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   
   # Kernel parameter dla NVIDIA + Wayland (WAŻNE!)
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
