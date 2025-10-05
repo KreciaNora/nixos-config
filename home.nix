@@ -5,15 +5,28 @@
   home.homeDirectory = "/home/krecikowa";
   home.stateVersion = "25.05";
 
-  # Podstawowa konfiguracja git
+  home.file = {
+    ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink 
+      "${config.home.homeDirectory}/nixos-config/dotfiles/hypr";
+
+    ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink 
+      "${config.home.homeDirectory}/nixos-config/dotfiles/waybar";
+
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
+      "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+
+    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink 
+      "${config.home.homeDirectory}/nixos-config/dotfiles/kitty";
+  }; 
+
+
     programs.git = {
    enable = true;
    userName = "Krecikowa";
    userEmail = "krecikowa01@gmail.com";  
   };
 
-  # Bash aliases
-programs.bash = {
+  programs.bash = {
    enable = true;
    shellAliases = {
      ll = "ls -la";
@@ -21,4 +34,5 @@ programs.bash = {
        update = "cd ~/nixos-config && nix flake update && rebuild";
    };
   };
+
 }
