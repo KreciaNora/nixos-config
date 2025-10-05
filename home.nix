@@ -17,7 +17,9 @@
 
     ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink 
       "${config.home.homeDirectory}/nixos-config/dotfiles/kitty";
+    "wallpapers/wallpaper.jpg".source = ./dotfiles/wallpapers/wallpaper.jpg;
   }; 
+
 
 
     programs.git = {
