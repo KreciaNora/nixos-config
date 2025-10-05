@@ -52,7 +52,9 @@
     firefox
     discord
     vscodium
+    github-desktop
     krita
+    transmission_4-gtk
   ];
 
   # Hardware
