@@ -4,13 +4,12 @@
   home.username = "krecikowa";
   home.homeDirectory = "/home/krecikowa";
   home.stateVersion = "25.05";
-  home-manager.backupFileExtension = "backup";
 
   # Podstawowa konfiguracja git
   programs.git = {
     enable = true;
     userName = "Krecikowa";
-    userEmail = "twoj@email.com";  # ← ZMIEŃ!
+    userEmail = "krecikowa01@gmail.com";  
   };
 
   # Bash aliases
