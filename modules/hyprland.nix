@@ -10,7 +10,6 @@
     waybar
     dunst
     libnotify
-    rofi-wayland
     kitty
     wofi
     swww
