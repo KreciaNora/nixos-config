@@ -6,11 +6,11 @@
   home.stateVersion = "25.05";
 
   # Podstawowa konfiguracja git
-  #  programs.git = {
-  # enable = true;
-  # userName = "Krecikowa";
-  # userEmail = "krecikowa01@gmail.com";  
-  #};
+    programs.git = {
+   enable = true;
+   userName = "Krecikowa";
+   userEmail = "krecikowa01@gmail.com";  
+  };
 
   # Bash aliases
 #programs.bash = {
