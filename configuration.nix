@@ -7,8 +7,9 @@
     ./modules/hyprland.nix
     ./modules/gaming.nix
   ];
-
-  # Bootloader
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "krecikowa" ];
+    # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_6_12;
@@ -46,6 +47,7 @@
 
   # Podstawowe pakiety
   environment.systemPackages = with pkgs; [
+    tree
     neovim
     wget
     git
@@ -55,6 +57,9 @@
     github-desktop
     krita
     transmission_4-gtk
+    unzip
+    unrar
+    virtualbox
   ];
 
   # Hardware

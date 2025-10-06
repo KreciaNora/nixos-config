@@ -14,21 +14,11 @@
 
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
       "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
-
-    ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink 
-      "${config.home.homeDirectory}/nixos-config/dotfiles/kitty";
-    "wallpapers/wallpaper.jpg".source = ./dotfiles/wallpapers/wallpaper.jpg;
   }; 
 
 
 
-    programs.git = {
-   enable = true;
-   userName = "Krecikowa";
-   userEmail = "krecikowa01@gmail.com";  
-  };
-
-  programs.bash = {
+    programs.bash = {
    enable = true;
    shellAliases = {
      ll = "ls -la";
