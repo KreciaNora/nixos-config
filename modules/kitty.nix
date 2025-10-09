@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-   environment.etc."xdg/config/kitty/kitty.conf".text ''
+   environment.etc."xdg/config/kitty/kitty.conf".text = ''
     font_family FiraCode Nerd Font
     font_size 29.0
     background #1e1e2e
