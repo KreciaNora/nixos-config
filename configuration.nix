@@ -17,18 +17,5 @@
     ./modules/nix.nix
 
   ];
- virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "krecikowa" ];
-    # Bootloader
 
-  # Network
-
-  # Locale
-  # Desktop
-  # Audio
-  # User
-  # Podstawowe pakiety
-
-  # Hardware
-  # Nix
 }
