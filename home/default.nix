@@ -1,5 +1,5 @@
-_: {
-  imports = {
+_:{
+  imports = [
     ./kitty/kitty.nix
-  };
+  ];
 }
