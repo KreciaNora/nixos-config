@@ -16,7 +16,7 @@
       "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   }; 
   imports = [
-    ./home/kitty.nix
+    ./home
     
   ];
   
