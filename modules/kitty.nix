@@ -2,7 +2,7 @@
 let
   kittyConfig = ''
     font_family FiraCode Nerd Font
-    font_size 29.0
+    font_size 20.0
     background #1e1e2e
     foreground #cdd6f4
     cursor #f5e0dc
