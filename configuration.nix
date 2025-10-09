@@ -7,7 +7,6 @@
     ./modules/hyprland.nix
     ./modules/gaming.nix
     ./modules/packages.nix
-    ./modules/kitty.nix
 
   ];
  virtualisation.virtualbox.host.enable = true;
