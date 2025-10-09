@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 {
-
-
   environment.systemPackages = with pkgs; [
     tree
     vimb
@@ -19,7 +17,6 @@
     unzip
     kitty 
     unrar
-
     virtualbox
     signal-desktop
     fastfetch
