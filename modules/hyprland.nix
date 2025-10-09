@@ -10,7 +10,7 @@
     waybar
     dunst
     libnotify
-    kitty
+    alacritty
     wofi
     swww
     grim

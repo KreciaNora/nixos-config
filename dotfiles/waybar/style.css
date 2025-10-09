@@ -4,10 +4,11 @@
 window#waybar {
     background-color: rgba(43, 48, 59, 1);
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 1);
     transition-property: background-color;
     transition-duration: .5s;
-    border-bottom: 4px solid rgba(150, 100, 255, 0.5);
+   /* border-bottom: 4px solid rgba(150, 100, 255, 0.5);*/
+    margin-bottom: 4px;
 }
 
 window#waybar.hidden {

@@ -6,8 +6,10 @@
     ./modules/nvidia.nix
     ./modules/hyprland.nix
     ./modules/gaming.nix
+    ./modules/packages.nix
+    
   ];
-  virtualisation.virtualbox.host.enable = true;
+ virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "krecikowa" ];
     # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -46,21 +48,6 @@
   };
 
   # Podstawowe pakiety
-  environment.systemPackages = with pkgs; [
-    tree
-    neovim
-    wget
-    git
-    firefox
-    discord
-    vscodium
-    github-desktop
-    krita
-    transmission_4-gtk
-    unzip
-    unrar
-    virtualbox
-  ];
 
   # Hardware
   hardware.opentabletdriver = {
