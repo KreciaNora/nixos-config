@@ -16,8 +16,9 @@
       "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   }; 
   imports = [
-    ./modules/default.nix
-  ]
+    ./home/kitty.nix
+    
+  ];
   
 
     programs.bash = {
