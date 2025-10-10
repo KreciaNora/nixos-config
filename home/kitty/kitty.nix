@@ -3,7 +3,7 @@
   programs.kitty = {
     enable = true;
     font.name = "FiraCode Nerd Font";
-    font.size = 20;
+    font.size = 16;
     settings = {
       background = "#1e1e2e";
       foreground = "#cdd6f4";

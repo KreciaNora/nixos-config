@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/krecikowa";
   home.stateVersion = "25.05";
 
+
   home.file = {
 
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 

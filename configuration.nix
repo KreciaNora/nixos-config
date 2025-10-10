@@ -1,5 +1,5 @@
-
-_: {
+{ config, lib, pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     #./modules/nvidia.nix
@@ -18,4 +18,7 @@ _: {
 
   ];
 
+   fonts.packages = with pkgs; [
+    emacs-all-the-icons-fonts
+  ];
 }

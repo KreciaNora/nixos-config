@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    emacs
     tree
     nodejs
     vimb
@@ -23,5 +24,15 @@
     fastfetch
     htop
     google-chrome
+    btop
+    jdk
+
+    gcc
+    gnumake
+    cmake
+    libtool
+    autoconf
+    automake
+    pkg-config
   ];
 }
