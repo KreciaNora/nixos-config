@@ -20,14 +20,9 @@
         ];
         
         modules-right = [
-          "idle_inhibitor"
           "pulseaudio"
-          "power-profiles-daemon"
-          "keyboard-state"
-          "hyprland/language"
           "clock"
           "tray"
-          "custom/power"
         ];
         
         "keyboard-state" = {
