@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.waybar = {
@@ -117,11 +117,7 @@
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
 
-<<<<<<< HEAD:home/waybar/waybar-intel.nix
-        battery = {
-=======
-        battery = lib.mkIf hasBattery {
->>>>>>> bf2dfe1108a2d36e0aac2c79bc057d245ef6fe0a:home/waybar/waybar.nix
+        "battery" = lib.mkIf config.services.upower.enable {
           bat = "BAT1";
           states = {
             warning = 30;
@@ -135,13 +131,10 @@
           format-icons = ["" "" "" "" ""];
         };
 
-<<<<<<< HEAD:home/waybar/waybar-intel.nix
-=======
-       # "battery#bat2" = lib.mkIf hasBattery {
-       #   bat = "BAT2";
-       # };
+        # "battery#bat2" = lib.mkIf config.services.upower.enable {
+        #   bat = "BAT2";
+        # };
 
->>>>>>> bf2dfe1108a2d36e0aac2c79bc057d245ef6fe0a:home/waybar/waybar.nix
         "power-profiles-daemon" = {
           format = "{icon}";
           tooltip-format = "Power profile: {profile}\nDriver: {driver}";
