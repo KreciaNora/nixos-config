@@ -25,10 +25,10 @@
         ];
 
         modules-right = [
+          "battery"
           "pulseaudio"
           "clock"
           "tray"
-          "battery"
         ];
 
         "keyboard-state" = {
@@ -114,4 +114,89 @@
 
         "backlight" = {
           format = "{percent}% {icon}";
-          format-icons = ["]()
+          format-icons = ["" "" "" "" "" "" "" "" ""];
+        };
+
+        battery = {
+          bat = "BAT1";
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-full = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-alt = "{time} {icon}";
+          format-icons = ["" "" "" "" ""];
+        };
+
+        "power-profiles-daemon" = {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
+          };
+        };
+
+        "network" = {
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠ ";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+
+        "pulseaudio" = {
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
+        };
+
+        "custom/media" = {
+          format = "{icon} {text}";
+          return-type = "json";
+          max-length = 40;
+          format-icons = {
+            spotify = "";
+            default = "🎜";
+          };
+          escape = true;
+          exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null";
+        };
+
+        "custom/power" = {
+          format = "⏻ ";
+          tooltip = false;
+          menu = "on-click";
+          menu-file = "$HOME/.config/waybar/power_menu.xml";
+          menu-actions = {
+            shutdown = "shutdown";
+            reboot = "reboot";
+            suspend = "systemctl suspend";
+            hibernate = "systemctl hibernate";
+          };
+        };
+      };
+    };
+
+    style = builtins.readFile ./waybar_mocha.css;
+  };
+}
