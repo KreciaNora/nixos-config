@@ -4,9 +4,7 @@
     emacs
     tree
     nodejs
-    vimb
     qutebrowser
-    nyxt
     neovim
     wget
     git
@@ -26,7 +24,6 @@
     google-chrome
     btop
     jdk
-    lynx
 
     gcc
     gnumake

@@ -20,7 +20,7 @@
       exec-once = [
         "waybar &"
         "swww-daemon"
-        "swww img ~/wallpapers/wallpaper.jpg --transition-type fade"
+        "swww img ~/wallpapers/wallpaper2.jpg --transition-type fade"
       ];
       
       env = [
@@ -29,8 +29,8 @@
       ];
       
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 1;
         "col.active_border" = "rgba(aa77ddff) rgba(ff00ffff) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -40,7 +40,7 @@
       };
       
       decoration = {
-        rounding = 0;
+        rounding = 3;
         rounding_power = 2;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
@@ -148,7 +148,8 @@
       
       bind = [
         "SUPER SHIFT,R,exec,pkill waybar && waybar &"
-        
+        #reload tapety
+        "$mainMod CTRL SHIFT,W,exec,pkill swww && swww-daemon && sleep 0.5 && swww img ~/wallpapers/wallpaper2.jpg"
         "$mainMod,F,fullscreen,0"
         
         "$mainMod,return,exec,$terminal"
