@@ -120,6 +120,7 @@ in
         };
 
         battery = lib.mkIf hasBattery {
+          bat = "BAT1";
           states = {
             warning = 30;
             critical = 15;
@@ -132,9 +133,9 @@ in
           format-icons = ["" "" "" "" ""];
         };
 
-        "battery#bat2" = lib.mkIf hasBattery {
-          bat = "BAT2";
-        };
+       # "battery#bat2" = lib.mkIf hasBattery {
+       #   bat = "BAT2";
+       # };
 
         "power-profiles-daemon" = {
           format = "{icon}";
