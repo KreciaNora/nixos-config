@@ -1,0 +1,227 @@
+/* Catppuccin Mocha Theme */
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+* {
+  font-family: "JetBrainsMono Nerd Font"; 
+  font-size: 13px; 
+  min-height: 0;
+  color: @text;
+}
+
+window#waybar {
+  background-color: @base;
+  border: 2px solid @crust;
+  border-radius: 10px;
+  margin: 5px 5px 0 5px;
+  padding: 0 5px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Workspaces */
+#workspaces {
+  background-color: @surface0;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 0 5px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background-color: transparent;
+  color: @subtext0;
+  border-radius: 6px;
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  background-color: @surface1;
+  color: @text;
+}
+
+#workspaces button.active {
+  background-color: @mauve;
+  color: @crust;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @crust;
+}
+
+/* Modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+  padding: 5px 12px;
+  margin: 3px 2px;
+  background-color: @surface0;
+  color: @text;
+  border-radius: 8px;
+}
+
+/* Clock */
+#clock {
+  background-color: @mauve;
+  color: @crust;
+  font-weight: bold;
+}
+
+/* Battery */
+#battery {
+  background-color: @surface0;
+  color: @green;
+}
+
+#battery.charging, #battery.plugged {
+  background-color: @green;
+  color: @crust;
+}
+
+#battery.warning:not(.charging) {
+  background-color: @yellow;
+  color: @crust;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @red;
+  color: @crust;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* CPU */
+#cpu {
+  background-color: @blue;
+  color: @crust;
+}
+
+/* Memory */
+#memory {
+  background-color: @sky;
+  color: @crust;
+}
+
+/* Temperature */
+#temperature {
+  background-color: @peach;
+  color: @crust;
+}
+
+#temperature.critical {
+  background-color: @red;
+  color: @crust;
+}
+
+/* Network */
+#network {
+  background-color: @teal;
+  color: @crust;
+}
+
+#network.disconnected {
+  background-color: @surface0;
+  color: @overlay0;
+}
+
+/* Pulseaudio */
+#pulseaudio {
+  background-color: @pink;
+  color: @crust;
+}
+
+#pulseaudio.muted {
+  background-color: @surface0;
+  color: @overlay0;
+}
+
+/* Backlight */
+#backlight {
+  background-color: @yellow;
+  color: @crust;
+}
+
+/* Tray */
+#tray {
+  background-color: @surface0;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+/* MPD */
+#mpd {
+  background-color: @lavender;
+  color: @crust;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+  background-color: @surface0;
+  color: @overlay0;
+}
+
+/* Idle Inhibitor */
+#idle_inhibitor {
+  background-color: @surface0;
+  color: @text;
+}
+
+#idle_inhibitor.activated {
+  background-color: @green;
+  color: @crust;
+}
+
+/* Mode */
+#mode {
+  background-color: @red;
+  color: @crust;
+  font-weight: bold;
+}

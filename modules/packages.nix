@@ -26,6 +26,7 @@
     google-chrome
     btop
     jdk
+    lynx
 
     gcc
     gnumake

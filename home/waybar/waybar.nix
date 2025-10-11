@@ -194,6 +194,6 @@
       };
     };
     
-    style = builtins.readFile ./waybar-style.css;
+    style = builtins.readFile ./waybar_mocha.css;
   };
 }
