@@ -1,9 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  hostname = config.networking.hostName or "nixos";
+  hasBattery = hostname == "laptop-intel";
+in
 {
   programs.waybar = {
     enable = true;
-    
+
     settings = {
       mainBar = {
         height = 30;
@@ -13,23 +17,22 @@
         margin-top = 10;
         margin-left = 20;
         margin-right = 20;
-        
+
         modules-left = [
           "hyprland/workspaces"
           "hyprland/mode"
           "hyprland/scratchpad"
         ];
-        
+
         modules-center = [
           "hyprland/window"
         ];
-        
-        modules-right = [
-          "pulseaudio"
-          "clock"
-          "tray"
-        ];
-        
+
+        modules-right =
+          if hasBattery
+          then [ "pulseaudio" "clock" "tray" "battery"]
+          else [ "pulseaudio" "clock" "tray" ];
+
         "keyboard-state" = {
           numlock = true;
           capslock = true;
@@ -39,11 +42,11 @@
             unlocked = "";
           };
         };
-        
+
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
         };
-        
+
         "sway/scratchpad" = {
           format = "{icon} {count}";
           show-empty = false;
@@ -51,7 +54,7 @@
           tooltip = true;
           tooltip-format = "{app}: {title}";
         };
-        
+
         "mpd" = {
           format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
           format-disconnected = "Disconnected ";
@@ -78,7 +81,7 @@
           tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
         };
-        
+
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
@@ -86,37 +89,37 @@
             deactivated = "";
           };
         };
-        
+
         "tray" = {
           spacing = 10;
         };
-        
+
         "clock" = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = "{:%Y-%m-%d}";
         };
-        
+
         "cpu" = {
           format = "{usage}% ";
           tooltip = false;
         };
-        
+
         "memory" = {
           format = "{}% ";
         };
-        
+
         "temperature" = {
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
           format-icons = ["" "" ""];
         };
-        
+
         "backlight" = {
           format = "{percent}% {icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
-        
-        "battery" = {
+
+        battery = lib.mkIf hasBattery {
           states = {
             warning = 30;
             critical = 15;
@@ -128,11 +131,11 @@
           format-alt = "{time} {icon}";
           format-icons = ["" "" "" "" ""];
         };
-        
-        "battery#bat2" = {
+
+        "battery#bat2" = lib.mkIf hasBattery {
           bat = "BAT2";
         };
-        
+
         "power-profiles-daemon" = {
           format = "{icon}";
           tooltip-format = "Power profile: {profile}\nDriver: {driver}";
@@ -144,16 +147,16 @@
             power-saver = "";
           };
         };
-        
+
         "network" = {
           format-wifi = "{essid} ({signalStrength}%) ";
           format-ethernet = "{ipaddr}/{cidr} ";
           tooltip-format = "{ifname} via {gwaddr} ";
           format-linked = "{ifname} (No IP) ";
-          format-disconnected = "Disconnected ⚠";
+          format-disconnected = "Disconnected ⚠ ";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        
+
         "pulseaudio" = {
           format = "{volume}% {icon} {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
@@ -171,7 +174,7 @@
           };
           on-click = "pavucontrol";
         };
-        
+
         "custom/media" = {
           format = "{icon} {text}";
           return-type = "json";
@@ -183,7 +186,7 @@
           escape = true;
           exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null";
         };
-        
+
         "custom/power" = {
           format = "⏻ ";
           tooltip = false;
@@ -198,7 +201,7 @@
         };
       };
     };
-    
+
     style = builtins.readFile ./waybar_mocha.css;
   };
 }
