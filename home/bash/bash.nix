@@ -13,5 +13,9 @@
        update = "cd ~/nixos-config && nix flake update && rebuild";
        doomSync = "~/.config/emacs/bin/doom sync";
    };
+    bashrcExtra = ''
+    # Minimalistyczny prompt: ~ > lub <ścieżka> >
+    PS1='\w > '
+  '';
   };
 }
