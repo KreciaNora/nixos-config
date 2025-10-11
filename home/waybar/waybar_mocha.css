@@ -27,8 +27,8 @@
 @define-color crust #11111b;
 
 * {
-  font-family: "JetBrainsMono Nerd Font"; 
-  font-size: 13px; 
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
   min-height: 0;
   color: @text;
 }
@@ -106,11 +106,24 @@ window#waybar.hidden {
 
 /* Battery */
 #battery {
-  background-color: @surface0;
-  color: @green;
+  background-color: @green;
+  color: @crust;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging {
+  background-color: @teal;
+  color: @crust;
+  animation: charging-pulse 2s ease-in-out infinite;
+}
+
+#battery.plugged {
+  background-color: @sapphire;
+  color: @crust;
+}
+
+#battery.full {
   background-color: @green;
   color: @crust;
 }
@@ -118,17 +131,40 @@ window#waybar.hidden {
 #battery.warning:not(.charging) {
   background-color: @yellow;
   color: @crust;
+  animation: warning-pulse 1.5s ease-in-out infinite;
 }
 
 #battery.critical:not(.charging) {
   background-color: @red;
   color: @crust;
-  animation: blink 1s linear infinite;
+  font-weight: bold;
+  animation: critical-blink 0.8s linear infinite;
 }
 
-@keyframes blink {
-  to {
-    opacity: 0.5;
+@keyframes charging-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes warning-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes critical-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0.3;
   }
 }
 

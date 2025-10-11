@@ -9,4 +9,8 @@
   networking.hostName = "laptop-nvidia";
 
   modules.nvidia.enable = true;
+
+  home-manager.users.krecikowa = {
+    imports = [ ../../home/waybar/waybar-nvidia.nix ];
+  };
 }

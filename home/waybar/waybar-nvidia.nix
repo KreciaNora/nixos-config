@@ -1,9 +1,5 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
-let
-  hostname = config.networking.hostName or "nixos";
-  hasBattery = hostname == "laptop-intel";
-in
 {
   programs.waybar = {
     enable = true;
@@ -28,10 +24,11 @@ in
           "hyprland/window"
         ];
 
-        modules-right =
-          if hasBattery
-          then [ "pulseaudio" "clock" "tray" "battery"]
-          else [ "pulseaudio" "clock" "tray" ];
+        modules-right = [
+          "pulseaudio"
+          "clock"
+          "tray"
+        ];
 
         "keyboard-state" = {
           numlock = true;
@@ -117,23 +114,6 @@ in
         "backlight" = {
           format = "{percent}% {icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
-        };
-
-        battery = lib.mkIf hasBattery {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{capacity}% {icon}";
-          format-full = "{capacity}% {icon}";
-          format-charging = "{capacity}% ";
-          format-plugged = "{capacity}% ";
-          format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
-        };
-
-        "battery#bat2" = lib.mkIf hasBattery {
-          bat = "BAT2";
         };
 
         "power-profiles-daemon" = {
