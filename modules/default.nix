@@ -12,5 +12,6 @@ _: {
     ./hyprland.nix
     ./packages.nix
     ./bootloader.nix
+    ./xampp.nix
   ];
 }
