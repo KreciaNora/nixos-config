@@ -7,9 +7,14 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, ... }:
+  {
     nixosConfigurations = {
 
       # Laptop z NVIDIA
@@ -24,6 +29,12 @@
             home-manager.useUserPackages = true;
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
+          }
+
+          {
+            environment.systemPackages = [
+              zen-browser.packages.x86_64-linux.default
+            ];
           }
         ];
       };
@@ -41,9 +52,15 @@
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
           }
+
+          {
+            environment.systemPackages = [
+              zen-browser.packages.x86_64-linux.default
+            ];
+          }
         ];
       };
-
     };
   };
 }
+

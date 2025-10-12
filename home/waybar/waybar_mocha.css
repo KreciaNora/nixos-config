@@ -102,6 +102,7 @@ window#waybar.hidden {
   background-color: @mauve;
   color: @crust;
   font-weight: bold;
+  margin-right: 4px;
 }
 
 /* Battery */

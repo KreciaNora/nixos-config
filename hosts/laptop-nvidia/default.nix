@@ -10,7 +10,7 @@
 
   modules.nvidia.enable = true;
   
-  services.xampp.enable = true;
+  #  services.xampp.enable = true;
 
   home-manager.users.krecikowa = {
     imports = [ ../../home/waybar/waybar-nvidia.nix ];
