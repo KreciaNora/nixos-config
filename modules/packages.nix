@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    postman
+    gimp
+    bottles
+    tmux
+    lunarvim
+    intelephense
+    typescript-language-server
+    helix
     gtop
     ranger
     gotop

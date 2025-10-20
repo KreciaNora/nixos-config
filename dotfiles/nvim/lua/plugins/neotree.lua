@@ -61,7 +61,7 @@ return {
     })
 
     -- 🔧 Klawisze skrótów
-    vim.keymap.set('n', '<leader>e', ':Neotree toggle filesystem left<CR>', { desc = "Explorer (Neo-tree)" })
+    vim.keymap.set('n', '<leader>a', ':Neotree toggle filesystem left<CR>', { desc = "Explorer (Neo-tree)" })
     vim.keymap.set('n', '<leader>b', ':Neotree toggle buffers left<CR>', { desc = "Buffers list" })
     vim.keymap.set('n', '<leader>g', ':Neotree toggle git_status float<CR>', { desc = "Git status" })
   end,

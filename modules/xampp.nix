@@ -1,22 +1,38 @@
 { config, pkgs, ... }:
-
 {
-  # ... reszta konfiguracji ...
-
-  # Włącz Apache (httpd)
   services.httpd = {
     enable = true;
     enablePHP = true;
     
-    # Dodatkowe moduły Apache
+    adminAddr = "admin@localhost";
+    
+    phpPackage = pkgs.php;
+    
+    phpOptions = ''
+      error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+      display_errors = On
+      display_startup_errors = On
+      log_errors = On
+      session.save_path = "/tmp"
+      upload_tmp_dir = "/tmp"
+    '';
+    
     extraModules = [ "proxy_fcgi" ];
     
-    # Konfiguracja phpMyAdmin
     virtualHosts."localhost" = {
-      documentRoot = "${pkgs.phpmyadmin}/share/phpmyadmin";
+      documentRoot = "/home/krecikowa/www";  # ← Twój katalog domowy
       
       extraConfig = ''
-        <Directory "${pkgs.phpmyadmin}/share/phpmyadmin">
+        <Directory "/home/krecikowa/www">
+          DirectoryIndex index.php index.html
+          AllowOverride All
+          Require all granted
+          Options Indexes FollowSymLinks
+        </Directory>
+        
+        Alias /phpmyadmin /var/www/phpmyadmin
+        
+        <Directory "/var/www/phpmyadmin">
           DirectoryIndex index.php
           AllowOverride All
           Require all granted
@@ -24,13 +40,11 @@
       '';
     };
   };
-
-  # Włącz MySQL/MariaDB
+  
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
     
-    # Opcjonalnie: ustaw początkowe bazy danych
     ensureDatabases = [ "testdb" ];
     ensureUsers = [{
       name = "testuser";
@@ -39,9 +53,12 @@
       };
     }];
   };
-
-  # Dodaj phpMyAdmin do pakietów systemowych
+  
   environment.systemPackages = with pkgs; [
-    phpmyadmin
+    mariadb
+    apacheHttpd
+    php
+    wget
+    unzip
   ];
 }

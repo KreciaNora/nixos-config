@@ -8,7 +8,7 @@ programs.kitty = {
     size = 12;
   };
   settings = {
-    background_opacity = "0.85";
+    background_opacity = "0.95";
     window_padding_width = 10;
     adjust_line_height = "100%";   
     adjust_column_width = "100%";  

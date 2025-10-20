@@ -30,7 +30,10 @@ return {
       },
     })
 
-    vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
+        vim.keymap.set("n", "<leader>e", "<CMD>Oil --float<CR>", { desc = "Open oil in floating window" })
+
+
+
   end,
 }
 
