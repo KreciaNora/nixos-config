@@ -9,8 +9,8 @@
     "wallpapers".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/nixos-config/dotfiles/wallpapers";
 
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
-      "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
+    #".config/nvim".source = config.lib.file.mkOutOfStoreSymlink 
+    #  "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   }; 
   imports = [
     ./home

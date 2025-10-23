@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    eza
+    hollywood
+    lua
+    ripgrep
+    figma-linux
     postman
     gimp
     bottles
