@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    ydotool
+    vim
+    lm_sensors
     eza
     hollywood
     lua

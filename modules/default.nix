@@ -13,5 +13,6 @@ _: {
     ./packages.nix
     ./bootloader.nix
     ./xampp.nix
+    ./ydotool.nix
   ];
 }
