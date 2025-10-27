@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixvim, ... }:
 {
   home.username = "krecikowa";
   home.homeDirectory = "/home/krecikowa";
@@ -13,8 +13,8 @@
     #  "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   }; 
   imports = [
+    nixvim.homeManagerModules.nixvim
     ./home
-    
   ];
   
 
