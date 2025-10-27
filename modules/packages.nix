@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    rustup
+    wasm-pack
     ydotool
     vim
     lm_sensors
     eza
-    hollywood
     lua
     ripgrep
     figma-linux
@@ -24,7 +25,6 @@
     tree
     nodejs
     qutebrowser
-    neovim
     wget
     git
     firefox

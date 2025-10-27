@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+    url = "github:nix-community/nixvim";
+    inputs.nixpkgs.follows = "nixpkgs";
+     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +18,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }:
+  outputs = { self, nixpkgs, home-manager, nixvim, zen-browser, ... }:
   {
     nixosConfigurations = {
 

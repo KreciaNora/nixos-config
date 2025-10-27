@@ -20,7 +20,9 @@
       exec-once = [
         "waybar &"
         "swww-daemon"
-        "swww img ~/wallpapers/wallpaper2.jpg --transition-type fade"
+        "swww img ~/wallpapers/wallpaper3.jpg --transition-type fade"
+        "ydotoold &"
+
       ];
       
       env = [
@@ -109,7 +111,7 @@
         kb_layout = "pl";
         kb_variant = "";
         kb_model = "";
-        kb_options = "";
+        kb_options = "caps:escape";
         kb_rules = "";
         left_handed = false;
         follow_mouse = 1;
@@ -147,9 +149,9 @@
       ];
       
       bind = [
-        "SUPER SHIFT,R,exec,pkill waybar && waybar &"
+        "SUPER SHIFT,P,exec,pkill waybar && waybar &"
         #reload tapety
-        "$mainMod CTRL SHIFT,W,exec,pkill swww && swww-daemon && sleep 0.5 && swww img ~/wallpapers/wallpaper2.jpg"
+        "$mainMod CTRL SHIFT,R,exec,pkill swww && swww-daemon && sleep 0.5 && swww img ~/wallpapers/wallpaper3.jpg"
         "$mainMod,F,fullscreen,0"
         
         "$mainMod,return,exec,$terminal"
@@ -166,9 +168,6 @@
         "$mainMod,up,movefocus,u"
         "$mainMod,down,movefocus,d"
         
-        "$mainMod,H,movefocus,l"
-        "$mainMod,L,movefocus,r"
-        "$mainMod,K,movefocus,u"
         
         "$mainMod,1,workspace,1"
         "$mainMod,2,workspace,2"
@@ -202,6 +201,8 @@
         "SHIFT,Print,exec,grim -g \"$(slurp)\" ~/Pictures/$(date +%Y%m%d_%H%M%S).png"
         "CTRL,Print,exec,grim - | wl-copy"
         "CTRL SHIFT,Print,exec,grim -g \"$(slurp)\" - | wl-copy"
+
+
       ];
       
       bindm = [
