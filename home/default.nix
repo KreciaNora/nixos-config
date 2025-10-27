@@ -1,4 +1,5 @@
-_:{
+{ config, pkgs, ... }:
+{
   imports = [
     ./kitty/kitty.nix
     ./bash/bash.nix
