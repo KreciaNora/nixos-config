@@ -13,7 +13,6 @@
     #  "${config.home.homeDirectory}/nixos-config/dotfiles/nvim";
   }; 
   imports = [
-    nixvim.homeManagerModules.default
     ./home
   ];
   
