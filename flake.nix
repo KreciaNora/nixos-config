@@ -33,7 +33,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
-	    home-manager.extraSpecialArgs = { inherit nvf; };
+	    home-manager.sharedModules = [ nvf.homeManagerModules.default ];
           }
           {
             environment.systemPackages = [
@@ -55,8 +55,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
-	    home-manager.extraSpecialArgs = { inherit nvf; };
-          }
+            home-manager.sharedModules = [ nvf.homeManagerModules.default ];
           {
             environment.systemPackages = [
               zen-browser.packages.x86_64-linux.default
