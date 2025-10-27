@@ -7,18 +7,17 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-    url = "github:nix-community/nixvim/nixos-25.05";
-    inputs.nixpkgs.follows = "nixpkgs";
-     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    nvf = {
+      url = "github:NotAShelf/nvf/v0.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, zen-browser, ... }:
+  outputs = { self, nixpkgs, home-manager, nvf, zen-browser, ... }:
   {
     nixosConfigurations = {
 
@@ -28,6 +27,7 @@
         modules = [
           ./configuration.nix
           ./hosts/laptop-nvidia
+	  nvf.homeManagerModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -35,7 +35,6 @@
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
 	    home-manager.extraSpecialArgs = { inherit nixvim; };
-	    home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
           }
 
           {
@@ -52,6 +51,7 @@
         modules = [
           ./configuration.nix
           ./hosts/laptop-intel
+	  nvf.homeManagerModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -59,7 +59,6 @@
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
 	    home-manager.extraSpecialArgs = { inherit nixvim; };
-	    home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
           }
 
           {
