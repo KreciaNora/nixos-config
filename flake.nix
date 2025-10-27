@@ -34,7 +34,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
-	    home-manager.extraSpecialArgs = { inherit nixvim; };
           }
 
           {
@@ -58,7 +57,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
-	    home-manager.extraSpecialArgs = { inherit nixvim; };
           }
 
           {
