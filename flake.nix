@@ -27,7 +27,6 @@
         modules = [
           ./configuration.nix
           ./hosts/laptop-nvidia
-	  nvf.homeManagerModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -35,7 +34,7 @@
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
           }
-
+	  nvf.homeManagerModules.default
           {
             environment.systemPackages = [
               zen-browser.packages.x86_64-linux.default
@@ -50,7 +49,6 @@
         modules = [
           ./configuration.nix
           ./hosts/laptop-intel
-	  nvf.homeManagerModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -58,7 +56,7 @@
             home-manager.users.krecikowa = import ./home.nix;
             home-manager.backupFileExtension = "backup";
           }
-
+	  nvf.homeManagerModules.default
           {
             environment.systemPackages = [
               zen-browser.packages.x86_64-linux.default
