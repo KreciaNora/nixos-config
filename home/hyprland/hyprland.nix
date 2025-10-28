@@ -161,12 +161,12 @@
         "$mainMod,V,togglefloating,"
         "$mainMod,D,exec,$menu"
         "$mainMod,P,pseudo,"
-        "$mainMod,J,togglesplit,"
+        "$mainMod,I,togglesplit,"
         
-        "$mainMod,left,movefocus,l"
-        "$mainMod,right,movefocus,r"
-        "$mainMod,up,movefocus,u"
-        "$mainMod,down,movefocus,d"
+        "$mainMod,H,movefocus,l"
+        "$mainMod,L,movefocus,r"
+        "$mainMod,K,movefocus,u"
+        "$mainMod,J,movefocus,d"
         
         
         "$mainMod,1,workspace,1"

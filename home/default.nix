@@ -4,6 +4,8 @@
     ./kitty/kitty.nix
     ./bash/bash.nix
     ./hyprland/hyprland.nix
-    ./nvim/nvim.nix
+#    ./nvim/nvim.nix
+    ./cursore/cursore.nix
+    
   ];
 }

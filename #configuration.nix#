@@ -30,6 +30,7 @@
       monospace = [ "Comic Mono" ];
     };
   };
+
   environment.systemPackages = with pkgs; [
     betterdiscordctl
     discord
