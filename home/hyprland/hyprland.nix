@@ -28,6 +28,7 @@
       env = [
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
+        "XCURSOR_THEME,Bibata-Modern-Classic"
       ];
       
       general = {
@@ -111,7 +112,7 @@
         kb_layout = "pl";
         kb_variant = "";
         kb_model = "";
-        kb_options = "caps:escape";
+        kb_options = "ctrl:nocaps";
         kb_rules = "";
         left_handed = false;
         follow_mouse = 1;
